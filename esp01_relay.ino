@@ -184,14 +184,14 @@ void handleControl()
 
     if (!server.hasArg("pin"))
     {
-        server.send(500);
+        server.send(400);
         return;
     }
 
     pin = server.arg("pin").toInt();
     if (pin != GPIO_RELAY && pin != GPIO_LED)
     {
-        server.send(500);
+        server.send(400);
         return;
     }
 
@@ -256,5 +256,5 @@ void handleNotFound()
     // Send 404 error message
     //
 
-    server.send(200, "text/plain", "404 Page Not Found");
+    server.send(404, "text/plain", "404 Page Not Found");
 }
